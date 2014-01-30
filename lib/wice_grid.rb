@@ -60,10 +60,11 @@ module Wice
     attr_reader :ar_options, :status, :export_to_csv_enabled, :csv_file_name, :csv_field_separator, :saved_query #:nodoc:
     attr_writer :renderer #:nodoc:
     attr_accessor :output_buffer, :view_helper_finished, :csv_tempfile #:nodoc:
+    attr_accessor :without_results_text
 
     # core workflow methods START
-
     def initialize(klass_or_relation, controller, opts = {})  #:nodoc:
+      self.without_results_text = opts.delete( :without_results_text ) || "0"
       @controller = controller
 
       @relation = klass_or_relation
