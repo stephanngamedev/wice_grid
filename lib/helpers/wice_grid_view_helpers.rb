@@ -120,7 +120,7 @@ module Wice
         grid_csv(grid, rendering)
       else
         # If blank_slate is defined we don't show any grid at all
-        if rendering.blank_slate_handler &&  grid.resultset.size == 0 && ! grid.filtering_on?
+        if rendering.blank_slate_handler &&  grid.resultset.size == 0
           generate_blank_slate(grid, rendering)
         else
           grid_html(grid, options, rendering, reuse_last_column_for_filter_buttons)
